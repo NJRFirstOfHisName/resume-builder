@@ -1,0 +1,36 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+}
+
+.contact {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.contact h1 {
+  grid-column: 1/5;
+}
+
+.printResume {
+  width: 8.5in;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.experience {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1rem;
+}
+
+ul {
+  list-style-type: none;
+}
