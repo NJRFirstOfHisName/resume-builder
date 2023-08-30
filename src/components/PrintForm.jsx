@@ -1,5 +1,4 @@
 function PrintForm({ resumeData }) {
-  console.log(resumeData);
   return (
     <div className="resume">
       <div className="contactInfo">
@@ -14,28 +13,76 @@ function PrintForm({ resumeData }) {
           <li>{resumeData.contactInfo.emailAddress}</li>
         </ul>
       </div>
+
       <h2>Experience</h2>
       <div className="experience">
         <ul>
-          <li>{resumeData.jobInfo.jobTitle}</li>
-          <li>{resumeData.jobInfo.employer}</li>
+          <li>{resumeData.jobInfo1.jobTitle}</li>
+          <li>{resumeData.jobInfo1.employer}</li>
           <li>
-            {resumeData.jobInfo.jobStartDate} - {resumeData.jobInfo.jobEndDate}
+            {resumeData.jobInfo1.jobStartDate} -{" "}
+            {resumeData.jobInfo1.jobEndDate}
           </li>
-        </ul>{" "}
-        <p>{resumeData.jobInfo.description}</p>
-      </div>
-      <h2>Education</h2>
-      <div className="education">
-        <ul>
-          <li>{resumeData.eduInfo.school}</li>
-          <li>{resumeData.eduInfo.eduField}</li>
-          <li>
-            {resumeData.eduInfo.eduStartDate} - {resumeData.eduInfo.eduEndDate}
-          </li>
-          <li>{resumeData.eduInfo.notes}</li>
         </ul>
+        <p>{resumeData.jobInfo1.description}</p>
       </div>
+
+      {resumeData.jobInfo2 ? (
+        <div className="experience">
+          <ul>
+            <li>{resumeData.jobInfo2.jobTitle}</li>
+            <li>{resumeData.jobInfo2.employer}</li>
+            <li>
+              {resumeData.jobInfo2.jobStartDate} -{" "}
+              {resumeData.jobInfo2.jobEndDate}
+            </li>
+          </ul>
+          <p>{resumeData.jobInfo2.description}</p>
+        </div>
+      ) : null}
+
+      {resumeData.jobInfo3 ? (
+        <div className="experience">
+          <ul>
+            <li>{resumeData.jobInfo3.jobTitle}</li>
+            <li>{resumeData.jobInfo3.employer}</li>
+            <li>
+              {resumeData.jobInfo3.jobStartDate} -{" "}
+              {resumeData.jobInfo3.jobEndDate}
+            </li>
+          </ul>
+          <p>{resumeData.jobInfo3.description}</p>
+        </div>
+      ) : null}
+
+      <h2>Education</h2>
+      {resumeData.eduInfo2 ? (
+        <div className="education">
+          <ul>
+            <li>{resumeData.eduInfo1.school}</li>
+            <li>{resumeData.eduInfo1.eduField}</li>
+            <li>
+              {resumeData.eduInfo1.eduStartDate} -{" "}
+              {resumeData.eduInfo1.eduEndDate}
+            </li>
+            <li>{resumeData.eduInfo1.notes}</li>
+          </ul>
+        </div>
+      ) : null}
+
+      {resumeData.eduInfo2 ? (
+        <div className="education">
+          <ul>
+            <li>{resumeData.eduInfo2.school}</li>
+            <li>{resumeData.eduInfo2.eduField}</li>
+            <li>
+              {resumeData.eduInfo2.eduStartDate} -{" "}
+              {resumeData.eduInfo2.eduEndDate}
+            </li>
+            <li>{resumeData.eduInfo2.notes}</li>
+          </ul>
+        </div>
+      ) : null}
     </div>
   );
 }

@@ -1,45 +1,48 @@
 import InputField from "./InputField";
 
-function ExperienceForm({ submitForm, inputChange }) {
+function ExperienceForm({ inputChange, i, id, deleteForm }) {
   return (
-    <form className="contact" onSubmit={submitForm}>
-      <h1>Experience</h1>
+    <div className="contact">
       <InputField
         inputType={"text"}
         inputName={"Job title:  "}
         inputID={"jobTitle"}
-        inputChange={(event) => inputChange(event, "jobInfo")}
+        inputChange={(event) => inputChange(event, "jobInfo", i)}
       />
       <InputField
         inputType={"text"}
         inputName={"Employer: "}
         inputID={"employer"}
-        inputChange={(event) => inputChange(event, "jobInfo")}
+        inputChange={(event) => inputChange(event, "jobInfo", i)}
       />
       <InputField
-        inputType={"month"}
-        inputName={"Start date:  "}
+        inputType={"number"}
+        inputName={"Start year:  "}
         inputID={"jobStartDate"}
-        inputPattern={"[0-9]{4}-[0-9]{2}"}
-        inputPlaceholder={"yyyy-mm"}
-        inputChange={(event) => inputChange(event, "jobInfo")}
+        max={2023}
+        min={1900}
+        inputPlaceholder={"yyyy"}
+        inputChange={(event) => inputChange(event, "jobInfo", i)}
       />
       <InputField
-        inputType={"month"}
-        inputName={"End date:  "}
+        inputType={"number"}
+        inputName={"End year:  "}
         inputID={"jobEndDate"}
-        inputPattern={"[0-9]{4}-[0-9]{2}"}
-        inputPlaceholder={"yyyy-mm"}
-        inputChange={(event) => inputChange(event, "jobInfo")}
+        max={2023}
+        min={1900}
+        inputPlaceholder={"yyyy"}
+        inputChange={(event) => inputChange(event, "jobInfo", i)}
       />
       <InputField
         inputType={"textarea"}
         inputName={"Description: "}
         inputID={"description"}
-        inputChange={(event) => inputChange(event, "jobInfo")}
+        inputChange={(event) => inputChange(event, "jobInfo", i)}
       />
-      <button type="submit">Submit</button>
-    </form>
+      <button type="button" onClick={() => deleteForm(id)}>
+        X
+      </button>
+    </div>
   );
 }
 

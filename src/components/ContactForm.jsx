@@ -1,8 +1,8 @@
 import InputField from "./InputField";
 
-function ContactForm({ submitForm, inputChange }) {
+function ContactForm({ inputChange }) {
   return (
-    <form className="contact" onSubmit={submitForm}>
+    <form className="contact">
       <h1>Contact Information</h1>
       <InputField
         inputType={"text"}
