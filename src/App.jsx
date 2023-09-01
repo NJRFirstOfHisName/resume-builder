@@ -81,25 +81,44 @@ function App() {
         [e.target.name]: e.target.value,
       },
     }));
-    console.log(resumeData);
   };
 
   const addInput = (isJob) => {
     if (isJob) {
-      !resumeData.jobInfo2.id
-        ? setResumeData((resumeData) => ({
-            ...resumeData,
-            jobInfo2: { id: uuidv4, type: "job" },
-          }))
-        : setResumeData((resumeData) => ({
-            ...resumeData,
-            jobInfo3: { id: uuidv4, type: "job" },
-          }));
+      if (!resumeData.jobInfo1.id) {
+        setResumeData((resumeData) => ({
+          ...resumeData,
+          jobInfo1: { title: "jobInfo1", id: uuidv4(), type: "job" },
+        }));
+      } else if (
+        resumeData.jobInfo1.jobTitle &&
+        !resumeData.jobInfo2.jobTitle
+      ) {
+        setResumeData((resumeData) => ({
+          ...resumeData,
+          jobInfo2: { title: "jobInfo2", id: uuidv4(), type: "job" },
+        }));
+      } else if (
+        resumeData.jobInfo2.jobTitle &&
+        !resumeData.jobInfo3.jobTitle
+      ) {
+        setResumeData((resumeData) => ({
+          ...resumeData,
+          jobInfo3: { title: "jobInfo3", id: uuidv4(), type: "job" },
+        }));
+      }
     } else {
-      setResumeData((resumeData) => ({
-        ...resumeData,
-        eduInfo2: { id: uuidv4, type: "edu" },
-      }));
+      if (!resumeData.eduInfo1.id) {
+        setResumeData((resumeData) => ({
+          ...resumeData,
+          eduInfo1: { title: "eduInfo1", id: uuidv4(), type: "edu" },
+        }));
+      } else if (resumeData.eduInfo1.school && !resumeData.eduInfo2.school) {
+        setResumeData((resumeData) => ({
+          ...resumeData,
+          eduInfo2: { title: "eduInfo2", id: uuidv4(), type: "edu" },
+        }));
+      }
     }
   };
 
@@ -107,11 +126,12 @@ function App() {
     const delResumeData = Object.values(resumeData).filter(
       (input) => input.id === id
     )[0];
+    console.log(delResumeData);
     const num = delResumeData.title.slice(-1);
     if (delResumeData.type === "job") {
       switch (num) {
-        case "1":
-          if (resumeData.jobInfo2.id) {
+        case "1": {
+          if (resumeData.jobInfo2.jobTitle) {
             const ji2 = resumeData.jobInfo2;
             ji2.title = "jobInfo1";
             if (resumeData.jobInfo3) {
@@ -130,10 +150,16 @@ function App() {
                 jobInfo2: { title: "jobInfo2" },
               }));
             }
+          } else {
+            setResumeData((resumeData) => ({
+              ...resumeData,
+              jobInfo1: {},
+            }));
           }
           break;
-        case "2":
-          if (resumeData.jobInfo3.id) {
+        }
+        case "2": {
+          if (resumeData.jobInfo3.jobTitle) {
             const ji3 = resumeData.jobInfo3;
             ji3.title = "jobInfo2";
             setResumeData((resumeData) => ({
@@ -141,8 +167,14 @@ function App() {
               jobInfo2: ji3,
               jobInfo3: { title: "jobInfo3" },
             }));
+          } else {
+            setResumeData((resumeData) => ({
+              ...resumeData,
+              jobInfo2: { title: "jobInfo2" },
+            }));
           }
           break;
+        }
         default:
           setResumeData((resumeData) => ({
             ...resumeData,
@@ -150,13 +182,23 @@ function App() {
           }));
       }
     } else {
-      if (num === "1" && resumeData.eduInfo2.id) {
+      if (num === "1" && resumeData.eduInfo2.school) {
         const ei2 = resumeData.eduInfo2;
         ei2.title = "eduInfo1";
         setResumeData((resumeData) => ({
           ...resumeData,
           eduInfo1: ei2,
           eduInfo2: { title: "eduInfo2" },
+        }));
+      } else if (num === "2") {
+        setResumeData((resumeData) => ({
+          ...resumeData,
+          eduInfo2: { title: "eduInfo2" },
+        }));
+      } else {
+        setResumeData((resumeData) => ({
+          ...resumeData,
+          eduInfo1: { title: "eduInfo1" },
         }));
       }
     }
@@ -194,7 +236,7 @@ function App() {
           ))}
         {Object.values(resumeData).filter((input) => input.type === "edu")
           .length < 2 ? (
-          <button onClick={() => addInput(true)}>Add</button>
+          <button onClick={() => addInput(false)}>Add</button>
         ) : null}
       </div>
       <div className="printResume">

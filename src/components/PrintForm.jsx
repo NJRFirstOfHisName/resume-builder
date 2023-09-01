@@ -19,10 +19,12 @@ function PrintForm({ resumeData }) {
         <ul>
           <li>{resumeData.jobInfo1.jobTitle}</li>
           <li>{resumeData.jobInfo1.employer}</li>
-          <li>
-            {resumeData.jobInfo1.jobStartDate} -{" "}
-            {resumeData.jobInfo1.jobEndDate}
-          </li>
+          {resumeData.jobInfo1.jobStartDate ? (
+            <li>
+              {resumeData.jobInfo1.jobStartDate} -{" "}
+              {resumeData.jobInfo1.jobEndDate}
+            </li>
+          ) : null}
         </ul>
         <p>{resumeData.jobInfo1.description}</p>
       </div>
@@ -32,10 +34,12 @@ function PrintForm({ resumeData }) {
           <ul>
             <li>{resumeData.jobInfo2.jobTitle}</li>
             <li>{resumeData.jobInfo2.employer}</li>
-            <li>
-              {resumeData.jobInfo2.jobStartDate} -{" "}
-              {resumeData.jobInfo2.jobEndDate}
-            </li>
+            {resumeData.jobInfo2.jobStartDate ? (
+              <li>
+                {resumeData.jobInfo2.jobStartDate} -{" "}
+                {resumeData.jobInfo2.jobEndDate}
+              </li>
+            ) : null}
           </ul>
           <p>{resumeData.jobInfo2.description}</p>
         </div>
@@ -46,10 +50,12 @@ function PrintForm({ resumeData }) {
           <ul>
             <li>{resumeData.jobInfo3.jobTitle}</li>
             <li>{resumeData.jobInfo3.employer}</li>
-            <li>
-              {resumeData.jobInfo3.jobStartDate} -{" "}
-              {resumeData.jobInfo3.jobEndDate}
-            </li>
+            {resumeData.jobInfo3.jobStartDate ? (
+              <li>
+                {resumeData.jobInfo3.jobStartDate} -{" "}
+                {resumeData.jobInfo3.jobEndDate}
+              </li>
+            ) : null}
           </ul>
           <p>{resumeData.jobInfo3.description}</p>
         </div>
@@ -61,10 +67,12 @@ function PrintForm({ resumeData }) {
           <ul>
             <li>{resumeData.eduInfo1.school}</li>
             <li>{resumeData.eduInfo1.eduField}</li>
-            <li>
-              {resumeData.eduInfo1.eduStartDate} -{" "}
-              {resumeData.eduInfo1.eduEndDate}
-            </li>
+            {resumeData.eduInfo1.eduStartDate ? (
+              <li>
+                {resumeData.eduInfo1.eduStartDate} -{" "}
+                {resumeData.eduInfo1.eduEndDate}
+              </li>
+            ) : null}
             <li>{resumeData.eduInfo1.notes}</li>
           </ul>
         </div>
@@ -75,10 +83,12 @@ function PrintForm({ resumeData }) {
           <ul>
             <li>{resumeData.eduInfo2.school}</li>
             <li>{resumeData.eduInfo2.eduField}</li>
-            <li>
-              {resumeData.eduInfo2.eduStartDate} -{" "}
-              {resumeData.eduInfo2.eduEndDate}
-            </li>
+            {resumeData.eduInfo2.eduStartDate ? (
+              <li>
+                {resumeData.eduInfo2.eduStartDate} -{" "}
+                {resumeData.eduInfo2.eduEndDate}
+              </li>
+            ) : null}
             <li>{resumeData.eduInfo2.notes}</li>
           </ul>
         </div>
