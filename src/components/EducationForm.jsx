@@ -1,19 +1,19 @@
 import InputField from "./InputField";
 
-function EducationForm({ inputChange, i, deleteForm }) {
+function EducationForm({ inputChange, deleteForm, id }) {
   return (
     <div className="contact">
       <InputField
         inputType={"text"}
         inputName={"Field of study: "}
         inputID={"eduField"}
-        inputChange={(event) => inputChange(event, "eduInfo", i)}
+        inputChange={(event) => inputChange(event, id)}
       />
       <InputField
         inputType={"text"}
         inputName={"School: "}
         inputID={"school"}
-        inputChange={(event) => inputChange(event, "eduInfo", i)}
+        inputChange={(event) => inputChange(event, id)}
       />
       <InputField
         inputType={"number"}
@@ -22,7 +22,7 @@ function EducationForm({ inputChange, i, deleteForm }) {
         max={2023}
         min={1900}
         inputPlaceholder={"yyyy"}
-        inputChange={(event) => inputChange(event, "eduInfo", i)}
+        inputChange={(event) => inputChange(event, id)}
       />
       <InputField
         inputType={"number"}
@@ -30,15 +30,15 @@ function EducationForm({ inputChange, i, deleteForm }) {
         inputID={"eduEndDate"}
         min={1900}
         inputPlaceholder={"yyyy"}
-        inputChange={(event) => inputChange(event, "eduInfo", i)}
+        inputChange={(event) => inputChange(event, id)}
       />
       <InputField
         inputType={"textarea"}
         inputName={"Notes: "}
         inputID={"notes"}
-        inputChange={(event) => inputChange(event, "eduInfo", i)}
+        inputChange={(event) => inputChange(event, id)}
       />
-      <button type="button" onClick={deleteForm}>
+      <button type="button" onClick={() => deleteForm(id)}>
         X
       </button>
     </div>

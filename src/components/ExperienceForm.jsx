@@ -1,19 +1,19 @@
 import InputField from "./InputField";
 
-function ExperienceForm({ inputChange, i, id, deleteForm }) {
+function ExperienceForm({ inputChange, deleteForm, id }) {
   return (
     <div className="contact">
       <InputField
         inputType={"text"}
         inputName={"Job title:  "}
         inputID={"jobTitle"}
-        inputChange={(event) => inputChange(event, "jobInfo", i)}
+        inputChange={(event) => inputChange(event, id)}
       />
       <InputField
         inputType={"text"}
         inputName={"Employer: "}
         inputID={"employer"}
-        inputChange={(event) => inputChange(event, "jobInfo", i)}
+        inputChange={(event) => inputChange(event, id)}
       />
       <InputField
         inputType={"number"}
@@ -22,7 +22,7 @@ function ExperienceForm({ inputChange, i, id, deleteForm }) {
         max={2023}
         min={1900}
         inputPlaceholder={"yyyy"}
-        inputChange={(event) => inputChange(event, "jobInfo", i)}
+        inputChange={(event) => inputChange(event, id)}
       />
       <InputField
         inputType={"number"}
@@ -31,13 +31,13 @@ function ExperienceForm({ inputChange, i, id, deleteForm }) {
         max={2023}
         min={1900}
         inputPlaceholder={"yyyy"}
-        inputChange={(event) => inputChange(event, "jobInfo", i)}
+        inputChange={(event) => inputChange(event, id)}
       />
       <InputField
         inputType={"textarea"}
         inputName={"Description: "}
         inputID={"description"}
-        inputChange={(event) => inputChange(event, "jobInfo", i)}
+        inputChange={(event) => inputChange(event, id)}
       />
       <button type="button" onClick={() => deleteForm(id)}>
         X
