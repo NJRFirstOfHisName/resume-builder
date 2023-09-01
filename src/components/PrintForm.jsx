@@ -60,22 +60,24 @@ function PrintForm({ resumeData }) {
           <p>{resumeData.jobInfo3.description}</p>
         </div>
       ) : null}
+      {resumeData.eduInfo1.id ? (
+        <>
+          <h2>Education</h2>
 
-      <h2>Education</h2>
-      {resumeData.eduInfo2 ? (
-        <div className="education">
-          <ul>
-            <li>{resumeData.eduInfo1.school}</li>
-            <li>{resumeData.eduInfo1.eduField}</li>
-            {resumeData.eduInfo1.eduStartDate ? (
-              <li>
-                {resumeData.eduInfo1.eduStartDate} -{" "}
-                {resumeData.eduInfo1.eduEndDate}
-              </li>
-            ) : null}
-            <li>{resumeData.eduInfo1.notes}</li>
-          </ul>
-        </div>
+          <div className="education">
+            <ul>
+              <li>{resumeData.eduInfo1.school}</li>
+              <li>{resumeData.eduInfo1.eduField}</li>
+              {resumeData.eduInfo1.eduStartDate ? (
+                <li>
+                  {resumeData.eduInfo1.eduStartDate} -{" "}
+                  {resumeData.eduInfo1.eduEndDate}
+                </li>
+              ) : null}
+              <li>{resumeData.eduInfo1.notes}</li>
+            </ul>
+          </div>
+        </>
       ) : null}
 
       {resumeData.eduInfo2 ? (
