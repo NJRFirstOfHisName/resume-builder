@@ -10,6 +10,8 @@ import PrintForm from "./components/PrintForm";
 function App() {
   const [resumeData, setResumeData] = useState({
     contactInfo: {
+      title: "contactInfo",
+      id: "contactInfo",
       firstName: "Bruce",
       lastName: "Wayne",
       primaryPhone: "555-123-4567",

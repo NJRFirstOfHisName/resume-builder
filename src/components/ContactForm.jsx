@@ -34,7 +34,6 @@ function ContactForm({ inputChange }) {
         inputID={"emailAddress"}
         inputChange={(event) => inputChange(event, "contactInfo")}
       />
-      <button type="submit">Submit</button>
     </form>
   );
 }
