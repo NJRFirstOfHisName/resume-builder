@@ -82,13 +82,6 @@ function App() {
     console.log(resumeData);
   };
 
-  const [inputFields, setInputFields] = useState([
-    { id: resumeData.jobInfo1.id, type: "job" },
-    { id: resumeData.jobInfo2.id, type: "job" },
-    { id: resumeData.eduInfo1.id, type: "edu" },
-    { id: resumeData.eduInfo2.id, type: "edu" },
-  ]);
-
   const addInput = (isJob) => {
     if (isJob) {
       !resumeData.jobInfo2.id
